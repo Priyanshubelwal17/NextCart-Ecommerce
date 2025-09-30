@@ -1,6 +1,6 @@
 "use client";
 
-import { RootState } from "@reduxjs/toolkit/query";
+import { RootState } from "../lib/redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import {
   decrementQuantity,
