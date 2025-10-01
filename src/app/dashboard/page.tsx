@@ -1,20 +1,12 @@
-"use client";
-
 import { auth } from "@/auth";
 import dynamic from "next/dynamic";
 
-const SalesChart = dynamic(
-  () => import("../../components/dashboard/SalesChart"),
-  {
-    ssr: false, // This is the key: it disables server-side rendering for the chart
-    loading: () => <p>Loading chart...</p>, // Optional: show a loading message
-  }
-);
 import StatCard from "@/src/components/dashboard/StatCard";
 import { prisma } from "@/src/lib/prisma";
 import { CreditCard } from "lucide-react";
 import { redirect } from "next/navigation";
 import React from "react";
+import SalesChart from "@/src/components/dashboard/SalesChart";
 
 async function Page() {
   const session = await auth();
@@ -46,7 +38,7 @@ async function Page() {
       </div>
       <div className="bg-gray-800 p-6 rounded-xl shadow-lg">
         <h2 className="text-xl font-bold text-white mb-4">Sales Overview</h2>
-        <div className="h-96">
+        <div style={{ width: "100%", height: "384px" }}>
           <SalesChart />
         </div>
       </div>
