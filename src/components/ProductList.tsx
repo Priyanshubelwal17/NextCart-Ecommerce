@@ -45,6 +45,12 @@ function ProductList() {
             key={product.id}
             className="bg-gray-800 border border-gray-700 p-4 rounded-lg flex flex-col"
           >
+            <img
+              className="w-full h-40 object-cover"
+              src={`${product.image}`}
+              alt={product.name}
+              full
+            />
             <h3 className="font-bold text-lg text-white ">{product.name}</h3>
             <p className="text-cyan-400 font-semibold">
               ${product.price.toFixed(2)}
