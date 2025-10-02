@@ -1,8 +1,9 @@
 import Cart from "../components/Cart";
 import Header from "../components/Header";
 import ProductList from "../components/ProductList";
+import { prisma } from "../lib/prisma";
 
-export default function Home() {
+export default async function Home() {
   return (
     <main className="min-h-screen p-8 sm:p-20 bg-gray-900">
       <Header />
