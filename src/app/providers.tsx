@@ -18,7 +18,7 @@ function NextAuthProvider({ children }: { children: React.ReactNode }) {
   return (
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        <SessionProvider>{children}</SessionProvider>;
+        <SessionProvider>{children}</SessionProvider>
         <Toaster />
       </QueryClientProvider>
     </Provider>
