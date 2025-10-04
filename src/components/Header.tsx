@@ -10,7 +10,9 @@ async function Header() {
   const session = await auth();
   return (
     <header className="flex justify-between items-center mb-10">
-      <h1 className="text-4xl font-bold text-cyan-400">NextCart</h1>
+      <Link href="/" className="text-4xl font-bold text-cyan-400">
+        NextCart
+      </Link>
       <p className="text-sm text-gray-300">Welcome, {session?.user?.name}</p>
       <div className="flex items-center gap-4">
         {session?.user ? (
@@ -24,6 +26,14 @@ async function Header() {
             >
               Dashboard
             </Link>
+
+            <Link
+              href="/contact"
+              className="text-sm font-semibold text-gray-300 hover:text-white"
+            >
+              Contact us
+            </Link>
+
             <SignOut />
             <Link href="/account">
               {session.user.image && (
