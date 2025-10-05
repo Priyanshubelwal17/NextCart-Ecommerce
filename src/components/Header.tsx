@@ -5,6 +5,7 @@ import { auth } from "@/auth";
 import SignOut from "./sign-out";
 import Image from "next/image";
 import SignIn from "./sign-in";
+import SearchBox from "./SearchBox";
 
 async function Header() {
   const session = await auth();
@@ -33,7 +34,9 @@ async function Header() {
             >
               Contact us
             </Link>
-
+            <div>
+              <SearchBox />
+            </div>
             <SignOut />
             <Link href="/account">
               {session.user.image && (

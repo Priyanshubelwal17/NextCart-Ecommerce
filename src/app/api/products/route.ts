@@ -1,11 +1,11 @@
-import { prisma } from "@/src/lib/prisma";
+import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
   try {
     // 1. Get the search query from the URL
     const { searchParams } = new URL(request.url);
-    const query = searchParams.get("Search");
+    const query = searchParams.get("search");
 
     // 2. Create a 'where' object for the Prisma query
     const whereClause = query
@@ -14,7 +14,7 @@ export async function GET(request: Request) {
             {
               name: {
                 contains: query,
-                mode: "insensitive",
+                mode: "insensitive", // Case-insensitive search
               },
             },
             {
@@ -27,6 +27,7 @@ export async function GET(request: Request) {
         }
       : {};
 
+    // 3. Use the 'where' object in the findMany call
     const products = await prisma.product.findMany({
       where: whereClause,
       orderBy: {
