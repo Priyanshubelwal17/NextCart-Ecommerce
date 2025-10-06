@@ -13,7 +13,11 @@ export default function SearchBox() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    router.push(`/?search=${searchTerm}`);
+    if (!searchTerm) {
+      router.push("/");
+    } else {
+      router.push(`/?search=${encodeURIComponent(searchTerm)}`);
+    }
   };
 
   return (
