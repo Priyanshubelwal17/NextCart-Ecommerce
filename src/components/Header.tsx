@@ -6,16 +6,18 @@ import SignOut from "./sign-out";
 import Image from "next/image";
 import SignIn from "./sign-in";
 import SearchBox from "./SearchBox";
+import CartIcon from "./CartIcon";
 
 async function Header() {
   const session = await auth();
   return (
-    <header className="flex justify-between items-center mb-10">
+    <header className="flex justify-between items-center mb-10 border border-gray-700 pb-4">
       <Link href="/" className="text-4xl font-bold text-cyan-400">
         NextCart
       </Link>
       <p className="text-sm text-gray-300">Welcome, {session?.user?.name}</p>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-5">
+        <CartIcon />
         {session?.user ? (
           <>
             <Link href="/orders" className="text-cyan-400 hover:text-cyan-300 ">
